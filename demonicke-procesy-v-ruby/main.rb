@@ -2,11 +2,7 @@ require 'rubygems'
 require 'daemons'
 
 LOG_ROOT = File.dirname(File.expand_path(__FILE__))
-
-Daemons.run_proc("main.rb.daemon") do  
-  log_file = "${LOG_ROOT}/daemon.log"  
-  work(log_file)  
-end 
+puts LOG_ROOT
 
 def work(log_file)  
   i = 1  
@@ -25,3 +21,7 @@ def work(log_file)
   end  
 end
 
+Daemons.run_proc("main.rb.daemon", :log_output => true) do  
+  log_file = "#{LOG_ROOT}/daemon.log"  
+  work(log_file)  
+end
