@@ -2,7 +2,6 @@ require 'rubygems'
 require 'daemons'
 
 LOG_ROOT = File.dirname(File.expand_path(__FILE__))
-puts LOG_ROOT
 
 def work(log_file)  
   i = 1  
